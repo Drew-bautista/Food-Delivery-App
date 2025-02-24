@@ -1,0 +1,103 @@
+CREATE TABLE CUSTOMER (
+    customer_id INT PRIMARY KEY,
+    cust_name VARCHAR(50),
+    city VARCHAR(50),
+    grade INT,
+    salesman_id INT
+);
+
+CREATE TABLE SALESMAN (
+    salesman_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    city VARCHAR(50),
+    commission DECIMAL(5,2)
+);
+
+CREATE TABLE ORDERS (
+    ord_no INT PRIMARY KEY,
+    purch_amt DECIMAL(10,2),
+    ord_date DATE,
+    customer_id INT,
+    salesman_id INT
+);
+
+
+
+
+INSERT INTO CUSTOMER VALUES 
+(3002, 'Nick Rimando', 'New York', 100, 5001),
+(3007, 'Brad Davis', 'New York', 200, 5001),
+(3005, 'Graham Zusi', 'California', 200, 5002),
+(3008, 'Julian Green', 'London', 300, 5002),
+(3004, 'Fabian Johnson', 'Paris', 300, 5006),
+(3009, 'Geoff Cameron', 'Berlin', 100, 5003),
+(3003, 'Jozy Altidore', 'Moscow', 200, 5007),
+(3001, 'Brad Guzan', 'London', NULL, 5005);
+
+INSERT INTO SALESMAN VALUES
+(5001, 'James Hoog', 'New York', 0.15),
+(5002, 'Nail Knite', 'Paris', 0.13),
+(5005, 'Pit Alex', 'London', 0.11),
+(5006, 'Mc Lyon', 'Paris', 0.14),
+(5007, 'Paul Adam', 'Rome', 0.13),
+(5003, 'Lauson Hen', 'San Jose', 0.12);
+
+INSERT INTO ORDERS VALUES
+(70001, 150.5, '2012-10-05', 3005, 5002),
+(70009, 270.65, '2012-09-10', 3001, 5005),
+(70002, 65.26, '2012-10-05', 3007, 5001),
+(70004, 110.5, '2012-08-17', 3009, 5003),
+(70007, 948.5, '2012-09-10', 3005, 5002);
+
+
+
+2.
+
+CREATE VIEW TotalPurchasePerCustomer AS
+SELECT 
+    c.customer_id,
+    c.cust_name,
+    SUM(o.purch_amt) AS total_purchase
+FROM CUSTOMER c
+JOIN ORDERS o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.cust_name;
+
+
+3.
+
+SELECT 
+    s.salesman_id,
+    s.name,
+    SUM(o.purch_amt * s.commission) AS total_commission
+FROM SALESMAN s
+JOIN ORDERS o ON s.salesman_id = o.salesman_id
+GROUP BY s.salesman_id, s.name
+ORDER BY s.name ASC;
+
+
+4.
+
+SELECT 
+    s.name AS salesman_name,
+    s.city AS salesman_city,
+    c.cust_name AS customer_name,
+    c.city AS customer_city,
+    c.grade
+FROM SALESMAN s
+JOIN CUSTOMER c ON s.salesman_id = c.salesman_id
+WHERE c.grade > 200;
+
+
+5. 
+
+SELECT 
+    c.cust_name,
+    c.city,
+    o.ord_no,
+    o.ord_date,
+    o.purch_amt
+FROM CUSTOMER c
+JOIN ORDERS o ON c.customer_id = o.customer_id
+ORDER BY c.customer_id, o.ord_date DESC;
+
+

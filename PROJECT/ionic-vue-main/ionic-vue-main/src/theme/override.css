@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+:root {
+	--ion-color-primary: #d71921;
+	--ion-color-primary-rgb: 215,25,33;
+	--ion-color-primary-contrast: #ffffff;
+	--ion-color-primary-contrast-rgb: 255,255,255;
+	--ion-color-primary-shade: #bd161d;
+	--ion-color-primary-tint: #db3037;
+
+	--ion-color-secondary: #edbe4c;
+	--ion-color-secondary-rgb: 237,190,76;
+	--ion-color-secondary-contrast: #ffffff;
+	--ion-color-secondary-contrast-rgb: 0,0,0;
+	--ion-color-secondary-shade: #d1a743;
+	--ion-color-secondary-tint: #efc55e;
+
+	--ion-color-tertiary: #5260ff;
+	--ion-color-tertiary-rgb: 82,96,255;
+	--ion-color-tertiary-contrast: #ffffff;
+	--ion-color-tertiary-contrast-rgb: 255,255,255;
+	--ion-color-tertiary-shade: #4854e0;
+	--ion-color-tertiary-tint: #6370ff;
+
+	--ion-color-success: #2dd36f;
+	--ion-color-success-rgb: 45,211,111;
+	--ion-color-success-contrast: #000000;
+	--ion-color-success-contrast-rgb: 0,0,0;
+	--ion-color-success-shade: #28ba62;
+	--ion-color-success-tint: #42d77d;
+
+	--ion-color-warning: #ffc409;
+	--ion-color-warning-rgb: 255,196,9;
+	--ion-color-warning-contrast: #000000;
+	--ion-color-warning-contrast-rgb: 0,0,0;
+	--ion-color-warning-shade: #e0ac08;
+	--ion-color-warning-tint: #ffca22;
+
+	--ion-color-danger: #eb445a;
+	--ion-color-danger-rgb: 235,68,90;
+	--ion-color-danger-contrast: #ffffff;
+	--ion-color-danger-contrast-rgb: 255,255,255;
+	--ion-color-danger-shade: #cf3c4f;
+	--ion-color-danger-tint: #ed576b;
+
+	--ion-color-medium: #dee2e6;
+	--ion-color-medium-rgb: 222,226,230;
+	--ion-color-medium-contrast: #000000;
+	--ion-color-medium-contrast-rgb: 0,0,0;
+	--ion-color-medium-shade: #6C757D;
+	--ion-color-medium-tint: #e1e5e9;
+
+	--ion-color-light: #fff;
+	--ion-color-light-rgb: 255,255,255;
+	--ion-color-light-contrast: #000000;
+	--ion-color-light-contrast-rgb: 0,0,0;
+	--ion-color-light-shade: #d2d4d7;
+	--ion-color-light-tint: #ffffff;
+
+    --padding-button: 0.3rem;
+    --border-radius-button: 1.4rem;
+
+    --ion-font-family: "Nunito";
+
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+h1 {
+    letter-spacing: -0.5px;
+}
+
+ion-header {
+    background-color: var(--ion-color-primary-contrast);
+}
+
+ion-toolbar {
+    padding-inline: 1rem;
+}
+
+ion-toolbar h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+
+    margin: 2rem 0.5rem;
+}
+
+ion-toolbar ion-button {
+    --background: #1fe0;
+
+    --color: var(--ion-color-primary);
+
+    --padding-top: 0;
+    --padding-bottom: 0;
+}
+
+ion-back-button {
+    background-color: var(--ion-color-medium);
+
+    color: var(--ion-color-medium-shade);
+    font-size: 1.2rem;
+
+    padding: var(--padding-button) calc(3 * var(--padding-button));
+    border-radius: var(--border-radius-button);
+}
+
+ion-popover {
+    --backdrop-opacity: 0.4;
+    --width: 85vw;
+}
+
+ion-popover::part(backdrop) {
+    background-color: var(--ion-color-medium-shade);
+}
+
+ion-modal {
+    --min-height: 100vh;
+}
